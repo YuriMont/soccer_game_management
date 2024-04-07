@@ -27,6 +27,7 @@ public class DBConnection {
         }
         return conn;
     }
+    
     public static void closeConnection() {
         if (conn != null) {
             try {
