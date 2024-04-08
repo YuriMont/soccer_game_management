@@ -1,12 +1,13 @@
 package entities;
 
 import java.util.List;
+import java.util.Random;
 
 public class Competicao {
 
-    private String nome;
-    private Confederacao confederacao;
-    private List<Time> times;
+    protected String nome;
+    protected Confederacao confederacao;
+    
 
     Competicao(){}
     
@@ -23,11 +24,30 @@ public class Competicao {
         this.confederacao = confederacao;
     }
 
-    public List<Time> getTimes() {
-        return times;
-    }
+    public int esp_Gols(Time time){
+        int gols = 0;
+        Random g = new Random();
+        switch (time.getNivel()) {
+            case 1:
+                gols = g.nextInt(3);
+                break;
 
-    public void setTimes(List<Time> times) {
-        this.times = times;
+            case 2:
+                gols = g.nextInt(3);
+                break;
+
+            case 3:
+                gols = g.nextInt(4);
+                break;
+
+            case 4:
+                gols = g.nextInt(5);
+                break;
+
+            case 5:
+                gols = g.nextInt(7);
+                break;
+            }
+            return gols;
     }
 }
