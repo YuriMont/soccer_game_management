@@ -1,10 +1,13 @@
+package entities;
+
+
+import infra.DBConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-import infra.DBConnection;
-
-public class Time extends Confederacao{
+public class Time extends Confederacao {
 
     private String nome;
     private String acronimo;
@@ -111,10 +114,10 @@ public class Time extends Confederacao{
         return nivel;
     }
 
-    public void preencher_Time(){        
+    public void preencher_Time(){
         Scanner s = new Scanner(System.in);
         Scanner i = new Scanner(System.in);
-        
+
         preeencher_Conf();
         System.out.print("Nome do time: ");
         String n = s.nextLine();
@@ -161,6 +164,6 @@ public class Time extends Confederacao{
         }
 
     }
-    
-    
+
+
 }

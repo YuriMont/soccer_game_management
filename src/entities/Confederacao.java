@@ -1,3 +1,5 @@
+package entities;
+
 import infra.DBConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

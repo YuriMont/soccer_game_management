@@ -1,8 +1,12 @@
+package entities;
+
+import java.util.List;
+
 public class Competicao {
 
     private String nome;
     private Confederacao confederacao;
-    private Time times[];
+    private List<Time> times;
 
     Competicao(){}
     
@@ -18,14 +22,12 @@ public class Competicao {
     public void setConfederacao(Confederacao confederacao) {
         this.confederacao = confederacao;
     }
-    public Time[] getTimes() {
+
+    public List<Time> getTimes() {
         return times;
     }
-    public void setTimes(Time[] times) {
+
+    public void setTimes(List<Time> times) {
         this.times = times;
     }
-
-    
-
-    
 }
