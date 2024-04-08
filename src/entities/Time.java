@@ -96,6 +96,8 @@ public class Time extends Confederacao {
     }
 
     public int nivel_Time(){
+        // so decide o nivel do time e retorna.
+
         Scanner i = new Scanner(System.in);
 
         System.out.println("Nivel: ");
@@ -115,6 +117,7 @@ public class Time extends Confederacao {
     }
 
     public void preencher_Time(){
+        // preenche as informacoes do time
         Scanner s = new Scanner(System.in);
         Scanner i = new Scanner(System.in);
 
@@ -134,36 +137,5 @@ public class Time extends Confederacao {
         setNivel(nv);
 
     }
-
-    public void insert_Time(){
-        DBConnection db = new DBConnection();
-        Connection conn = db.getConnection();
-
-        String sql = "INSERT INTO Time(nome, acro, nivel, estado, pontos_liga, gols_marcados, gols_sofridos, vitorias, empates, derrotas, saldo) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        insert_Confederacao();
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-            ps.setString(1, getNome());
-            ps.setString(2, getAcronimo());
-            ps.setInt(3, getNivel());
-            ps.setString(4, getEstado());
-            ps.setInt(5, getPontos_liga());
-            ps.setInt(6, getGols_marcados());
-            ps.setInt(7, getGols_marcados());
-            ps.setInt(8, getVitorias());
-            ps.setInt(9, getEmpates());
-            ps.setInt(10, getDerrotas());
-            ps.setInt(11, getSaldo_de_gols());
-
-            ps.execute();
-            ps.close();
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
 
 }
