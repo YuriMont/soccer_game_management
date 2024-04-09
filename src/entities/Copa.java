@@ -2,127 +2,90 @@ package entities;
 
 import java.util.List;
 import java.util.Random;
-import entities.Competicao;
 
 public class Copa extends Competicao {
     private List<Time> times;
     
-    public void tgp(){
-        // so pra exibir mensagens diferentes em caso de erro na disputa.
+    public void exibirMensagemDeErro(){
+        final String[] MENSAGENS = {
+                "Chutou pra fooooora!",
+                "Defende o goleiro!",
+                "Na traaaaave!!!",
+                "Ele escorregou e perdeu!"
+        };
 
-        Random m = new Random();
-        int mensagem = m.nextInt(3);
-        switch (mensagem) {
-            case 0:
-                System.out.println("Chutou pra fooooora!");
-                break;
-
-            case 1:
-                System.out.println("Defende o goleiro!");
-                break;
-
-            case 2:
-                System.out.println("Na traaaaave!!!");
-                break;
-
-            case 3:
-                System.out.println("Ele escorregou e perdeu!");
-                break;
-        }
-
+        Random random = new Random();
+        int indiceMensagem = random.nextInt(MENSAGENS.length);
+        System.out.println(MENSAGENS[indiceMensagem]);
     }
 
-    public Time decisao_Penaltis(Time mandante, Time visitante){
-        // decidir quem ganha nos penaltis. 5 cobrancas sao obrigatorias, apos isso sao alternadas.
-        // cada true conta como gol. Nao pode terminar empatado.
-        // quando desempatar, retorna o vencedor.
+    public Time decidirVencedorPenaltis(Time mandante, Time visitante) {
+        Random random = new Random();
+        int golsMandante = 0;
+        int golsVisitante = 0;
 
-        Random disputa = new Random();
-        boolean m = true;
-        boolean v = true;
-        int gm = 0;
-        int gv = 0;
-        for(int i = 1; i < 6; i++){
-            m = disputa.nextBoolean();
-            v = disputa.nextBoolean();
+        for (int i = 0; i < 5; i++) {
+            golsMandante += marcarGol(mandante, random);
+            golsVisitante += marcarGol(visitante, random);
+        }
 
-            if(m){
-                System.out.println("Gol do " + mandante.getNome() + "!");
-                gm++;
-            }else{
-                tgp();
-            }
-            if(v){
-                System.out.println("Gol do " + visitante.getNome() + "!");
-                gv++;
-            }else{
-                tgp();
+        if (golsMandante == golsVisitante) {
+            System.out.println("Tudo empatado! Vamos para as cobranças alternadas!");
+            while (golsMandante == golsVisitante) {
+                golsMandante += marcarGol(mandante, random);
+                golsVisitante += marcarGol(visitante, random);
             }
         }
 
-        if(gm == gv){
-            System.out.println("Tudo empatado! Vamos para as alternadas!");
-            while(gm == gv){
-                m = disputa.nextBoolean();
-                v = disputa.nextBoolean();
-
-                if(m){
-                    System.out.println("Gol do " + mandante.getNome() + "!");
-                    gm++;
-                }else{
-                    tgp();
-                }
-                if(v){
-                    System.out.println("Gol do " + visitante.getNome() + "!");
-                    gv++;
-                }else{
-                    tgp();
-                }   
-            }
-        }
-        
-        if(gm > gv){
-            return mandante;
-        }else{
-            return visitante;
-        }
-
+        return (golsMandante > golsVisitante) ? mandante : visitante;
     }
 
-    public void partida_Copa(Time mandante, Time visitante){
+    private int marcarGol(Time time, Random random) {
+        if (random.nextBoolean()) {
+            System.out.println("Gol do " + time.getNome() + "!");
+            return 1;
+        } else {
+            exibirMensagemDeErro();
+            return 0;
+        }
+    }
+
+    public void partidaCopa(Time mandante, Time visitante){
         // jogos de ida e volta, quem fizer mais gols no agregado, continua na lista, o outro sai.
         // se der empate, decide em penaltis, quem ganhar, continua na lista, o outro sai.
         
-        int gols_m_ida = esp_Gols(mandante);
-        int gols_v_ida = esp_Gols(visitante);
+        int gols_mandante_ida = gerarGolsEsperados(mandante);
+        int gols_visitante_ida = gerarGolsEsperados(visitante);
 
         System.out.println("- Jogo de Ida -");
-        System.out.println(visitante.getAcronimo() + " " + gols_v_ida + " x " + gols_m_ida + " " + mandante.getAcronimo());
+        System.out.println(visitante.getAcronimo() + " " + gols_visitante_ida + " x " + gols_mandante_ida + " " + mandante.getAcronimo());
 
-        int gols_m_volta = esp_Gols(mandante);
-        int gols_v_volta = esp_Gols(visitante);
+        int gols_mandante_volta = gerarGolsEsperados(mandante);
+        int gols_visitante_volta = gerarGolsEsperados(visitante);
 
         System.out.println("- Jogo da Volta -");
-        System.out.println(mandante.getAcronimo() + " " + gols_m_volta + " x " + gols_v_volta + " " + visitante.getAcronimo());
+        System.out.println(mandante.getAcronimo() + " " + gols_mandante_volta + " x " + gols_visitante_volta + " " + visitante.getAcronimo());
 
-        int m_total = gols_m_ida + gols_m_volta;
-        int v_total = gols_v_ida + gols_v_volta;
+        int gols_mandante_total = gols_mandante_ida + gols_mandante_volta;
+        int gols_visitante_total = gols_visitante_ida + gols_visitante_volta;
 
         System.out.println("- Agregado -");
-        System.out.println(mandante.getAcronimo() + " " + m_total + " x " + v_total + " " + visitante.getAcronimo());
+        System.out.println(mandante.getAcronimo() + " " + gols_mandante_total + " x " + gols_visitante_total + " " + visitante.getAcronimo());
 
         Time vencedor = new Time();
-        vencedor = decisao_Penaltis(mandante, visitante);
+        vencedor = decidirVencedorPenaltis(mandante, visitante);
 
         int index_perdedor = 0;
 
+        System.out.println("Vencedor: " + vencedor.getAcronimo());
+
         if(vencedor == mandante){
             index_perdedor = times.indexOf(visitante);
-            times.remove(index_perdedor);
         }else{
             index_perdedor = times.indexOf(mandante);
-            times.remove(index_perdedor);
         }
+
+        times.remove(index_perdedor);
 
     }
     

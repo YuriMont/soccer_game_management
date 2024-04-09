@@ -26,7 +26,7 @@ public class TimeRepository {
                 PreparedStatement statement = connection.prepareStatement(query);
                 ResultSet resultSet = statement.executeQuery()
         ) {
-            List<Time> time = new ArrayList<>();
+            List<Time> times = new ArrayList<>();
 
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
@@ -41,12 +41,13 @@ public class TimeRepository {
                 int empates = resultSet.getInt("empates");
                 int derrotas = resultSet.getInt("derrotas");
                 int saldo = resultSet.getInt("saldo");
- 
+
+                //criar construtor
                 Time time = new Time(id, nome, acronimo, nivel, estado, pontos_liga, gols_marcados, gols_sofridos, vitorias, empates, derrotas, saldo);
-                Time.add(time);
+                times.add(time);
             }
 
-            return time;
+            return times;
         } catch (SQLException e) {
             throw new DBException("Erro ao buscar: " + e.getMessage());
         }
@@ -62,13 +63,13 @@ public class TimeRepository {
             ps.setString(2, time.getAcronimo());
             ps.setInt(3, time.getNivel());
             ps.setString(4, time.getEstado());
-            ps.setInt(5, time.getPontos_liga());
-            ps.setInt(6, time.getGols_marcados());
-            ps.setInt(7, time.getGols_marcados());
+            ps.setInt(5, time.getPontosLiga());
+            ps.setInt(6, time.getGolsMarcados());
+            ps.setInt(7, time.getGolsMarcados());
             ps.setInt(8, time.getVitorias());
             ps.setInt(9, time.getEmpates());
             ps.setInt(10, time.getDerrotas());
-            ps.setInt(11, time.getSaldo_de_gols());
+            ps.setInt(11, time.getSaldoDeGols());
 
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -86,13 +87,13 @@ public class TimeRepository {
             ps.setString(2, time.getAcronimo());
             ps.setInt(3, time.getNivel());
             ps.setString(4, time.getEstado());
-            ps.setInt(5, time.getPontos_liga());
-            ps.setInt(6, time.getGols_marcados());
-            ps.setInt(7, time.getGols_marcados());
+            ps.setInt(5, time.getPontosLiga());
+            ps.setInt(6, time.getGolsMarcados());
+            ps.setInt(7, time.getGolsMarcados());
             ps.setInt(8, time.getVitorias());
             ps.setInt(9, time.getEmpates());
             ps.setInt(10, time.getDerrotas());
-            ps.setInt(11, time.getSaldo_de_gols());
+            ps.setInt(11, time.getSaldoDeGols());
 
             int rowsUpdated = ps.executeUpdate();
             if (rowsUpdated == 0) {

@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.List;
 import java.util.Random;
 
 public class Competicao {
@@ -24,30 +23,17 @@ public class Competicao {
         this.confederacao = confederacao;
     }
 
-    public int esp_Gols(Time time){
-        int gols = 0;
-        Random g = new Random();
-        switch (time.getNivel()) {
-            case 1:
-                gols = g.nextInt(3);
-                break;
+    public int gerarGolsEsperados(Time time) {
+        int maxGols = getMaxGolsPorNivel(time.getNivel());
+        return new Random().nextInt(maxGols + 1);
+    }
 
-            case 2:
-                gols = g.nextInt(3);
-                break;
-
-            case 3:
-                gols = g.nextInt(4);
-                break;
-
-            case 4:
-                gols = g.nextInt(5);
-                break;
-
-            case 5:
-                gols = g.nextInt(7);
-                break;
-            }
-            return gols;
+    private int getMaxGolsPorNivel(int nivel) {
+        final int[] MAX_GOLS_POR_NIVEL = {0, 3, 3, 4, 5, 7};
+        if (nivel >= 1 && nivel <= 5) {
+            return MAX_GOLS_POR_NIVEL[nivel];
+        } else {
+            throw new IllegalArgumentException("Nível inválido: " + nivel);
+        }
     }
 }

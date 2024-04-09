@@ -1,10 +1,6 @@
 package entities;
 
 
-import infra.DBConnection;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 public class Time extends Confederacao {
@@ -13,15 +9,18 @@ public class Time extends Confederacao {
     private String acronimo;
     private String estado;
     private int nivel = 1;
-    private int pontos_liga = 0;
-    private int gols_marcados = 0;
-    private int gols_sofridos = 0;
-    private int saldo_de_gols = 0;
-    private int vitorias = 0;
-    private int empates = 0;
-    private int derrotas = 0;
+    private int pontosLiga;
+    private int golsMarcados;
+    private int golsSofridos;
+    private int saldoDeGols;
+    private int vitorias;
+    private int empates;
+    private int derrotas;
 
-    Time(){}
+
+    public Time(){}
+
+    //criar construtor
 
     public String getNome() {
         return nome;
@@ -47,29 +46,29 @@ public class Time extends Confederacao {
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
-    public int getPontos_liga() {
-        return pontos_liga;
+    public int getPontosLiga() {
+        return pontosLiga;
     }
-    public void setPontos_liga(int pontos_liga) {
-        this.pontos_liga = pontos_liga + getPontos_liga();
+    public void setPontosLiga(int pontosLiga) {
+        this.pontosLiga = pontosLiga + getPontosLiga();
     }
-    public int getGols_marcados() {
-        return gols_marcados;
+    public int getGolsMarcados() {
+        return golsMarcados;
     }
-    public void setGols_marcados(int gols_marcados) {
-        this.gols_marcados = gols_marcados + getGols_marcados();
+    public void setGolsMarcados(int golsMarcados) {
+        this.golsMarcados = golsMarcados + getGolsMarcados();
     }
-    public int getGols_sofridos() {
-        return gols_sofridos;
+    public int getGolsSofridos() {
+        return golsSofridos;
     }
-    public void setGols_sofridos(int gols_sofridos) {
-        this.gols_sofridos = gols_sofridos + getGols_sofridos();
+    public void setGolsSofridos(int golsSofridos) {
+        this.golsSofridos = golsSofridos + getGolsSofridos();
     }
-    public int getSaldo_de_gols() {
-        return saldo_de_gols;
+    public int getSaldoDeGols() {
+        return saldoDeGols;
     }
-    public void setSaldo_de_gols(int saldo_de_gols) {
-        this.saldo_de_gols = saldo_de_gols;
+    public void setSaldoDeGols(int saldoDeGols) {
+        this.saldoDeGols = saldoDeGols;
     }
     public int getVitorias() {
         return vitorias;
@@ -90,6 +89,7 @@ public class Time extends Confederacao {
         this.derrotas = derrotas + getDerrotas();
     }
 
+    //explicar melhor
     public int obter_Saldo(int gm, int gs){
         int s = gm - gs;
         return s;
@@ -116,6 +116,7 @@ public class Time extends Confederacao {
         return nivel;
     }
 
+    //modificar
     public void preencher_Time(){
         // preenche as informacoes do time
         Scanner s = new Scanner(System.in);

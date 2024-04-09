@@ -31,6 +31,7 @@ public class Confederacao {
         this.copa = copa;
     }
 
+    //Vamos mudar isso
     public void preeencher_Conf(){
         Scanner s = new Scanner(System.in);
 
@@ -49,26 +50,4 @@ public class Confederacao {
         c.setNome(nc);
     }
 
-    public void insert_Confederacao(){
-        DBConnection bd = new DBConnection();
-        Connection conn = bd.getConnection();
-
-        String sql = "INSERT INTO Conf(pais, liga, copa) VALUES(?, ?, ?)";
-        
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-            ps.setString(1, getPais());
-            ps.setString(2, liga.getNome());
-            ps.setString(3, copa.getNome());
-
-            ps.execute();
-            ps.close();
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    
 }

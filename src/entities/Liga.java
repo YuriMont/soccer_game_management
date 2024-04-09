@@ -1,7 +1,6 @@
 package entities;
 
 import java.util.List;
-import entities.Competicao;
 
 public class Liga extends Competicao {
     private List<Time> times;
@@ -13,30 +12,37 @@ public class Liga extends Competicao {
         
     }
 
-    public void partida_Liga(Time mandante, Time visitante){
-        int gols_m = esp_Gols(mandante);
-        int gols_v = esp_Gols(visitante);
+    public void partidaLiga(Time mandante, Time visitante){
+        int gols_mandante = gerarGolsEsperados(mandante);
+        int gols_visitante = gerarGolsEsperados(visitante);
 
-        System.out.println(mandante.getAcronimo() + " " + gols_m + " x " + gols_m + " " + visitante.getAcronimo());
+        System.out.println(mandante.getAcronimo() + " " + gols_mandante + " x " + gols_mandante + " " + visitante.getAcronimo());
 
-        if(gols_m > gols_v){
-            mandante.setPontos_liga(3);
-            mandante.setVitorias(1);
-            visitante.setPontos_liga(0);
-            visitante.setDerrotas(1);
-        }else if(gols_v > gols_m){
-            visitante.setPontos_liga(3);
-            visitante.setVitorias(1);
-            mandante.setPontos_liga(0);
-            mandante.setDerrotas(1);
-        }else{
-            mandante.setPontos_liga(1);
-            mandante.setEmpates(1);
-            visitante.setPontos_liga(1);
-            visitante.setEmpates(1);
+        if (gols_mandante > gols_visitante) {
+            registrarVitoria(mandante);
+            registrarDerrota(visitante);
+        } else if (gols_visitante > gols_mandante) {
+            registrarVitoria(visitante);
+            registrarDerrota(mandante);
+        } else {
+            registrarEmpate(mandante);
+            registrarEmpate(visitante);
         }
-        
-        
+    }
+
+    private void registrarVitoria(Time time) {
+        time.setPontosLiga(3);
+        time.setVitorias(1);
+    }
+
+    private void registrarDerrota(Time time) {
+        time.setPontosLiga(0);
+        time.setDerrotas(1);
+    }
+
+    private void registrarEmpate(Time time) {
+        time.setPontosLiga(1);
+        time.setEmpates(1);
     }
     
 }
