@@ -7,7 +7,6 @@ public class Competicao {
     protected String nome;
     protected Confederacao confederacao;
     
-
     Competicao(){}
     
     public String getNome() {
