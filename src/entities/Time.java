@@ -1,6 +1,5 @@
 package entities;
 
-
 import java.util.Scanner;
 
 public class Time extends Confederacao {
@@ -18,9 +17,15 @@ public class Time extends Confederacao {
     private int derrotas;
 
 
-    public Time(){}
+    Time(){}
 
-    //criar construtor
+    public Time(String pais, Liga liga, Copa copa, String nome, String acronimo, String estado, int nivel){
+        super(pais, liga, copa);
+        this.nome = nome;
+        this.acronimo = acronimo;
+        this.estado = estado;
+        this.nivel = nivel;
+    }
 
     public String getNome() {
         return nome;
@@ -90,9 +95,9 @@ public class Time extends Confederacao {
     }
 
     //explicar melhor
-    public int obter_Saldo(int gm, int gs){
-        int s = gm - gs;
-        return s;
+    public int obter_Saldo(int golsMarcados, int golsSofridos){
+        int saldo = golsMarcados - golsSofridos;
+        return saldo;
     }
 
     public int nivel_Time(){

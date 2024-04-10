@@ -11,6 +11,12 @@ public class Confederacao {
     protected Copa copa;
 
     Confederacao(){}
+
+    public Confederacao(String pais, Liga liga, Copa copa){
+        this.pais = pais;
+        this.liga = liga;
+        this.copa = copa;
+    }
     
     public String getPais() {
         return pais;
