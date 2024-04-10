@@ -34,7 +34,7 @@ create table Time(
 
 create table Liga(
     id int primary key AUTO_INCREMENT,
-
+    
     
 );
 

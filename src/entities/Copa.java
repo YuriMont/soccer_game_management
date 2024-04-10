@@ -88,5 +88,13 @@ public class Copa extends Competicao {
         times.remove(index_perdedor);
 
     }
+
+    public void campeaoDaCopa(){
+        if(times.size() == 1){
+            System.out.println("O " + times.get(0) + " é o campeão da Copa nacional!");
+        }else{
+            System.out.println("A copa ainda está em andamento.");
+        }
+    }
     
 }

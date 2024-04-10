@@ -11,6 +11,21 @@ public class Liga extends Competicao {
         // sequencia de criterios: pontos, vitorias, saldo, gols marcados.
         
     }
+    
+    private void registrarVitoria(Time time) {
+        time.setPontosLiga(3);
+        time.setVitorias(1);
+    }
+
+    private void registrarDerrota(Time time) {
+        time.setPontosLiga(0);
+        time.setDerrotas(1);
+    }
+
+    private void registrarEmpate(Time time) {
+        time.setPontosLiga(1);
+        time.setEmpates(1);
+    }
 
     public void partidaLiga(Time mandante, Time visitante){
         int gols_mandante = gerarGolsEsperados(mandante);
@@ -30,19 +45,5 @@ public class Liga extends Competicao {
         }
     }
 
-    private void registrarVitoria(Time time) {
-        time.setPontosLiga(3);
-        time.setVitorias(1);
-    }
-
-    private void registrarDerrota(Time time) {
-        time.setPontosLiga(0);
-        time.setDerrotas(1);
-    }
-
-    private void registrarEmpate(Time time) {
-        time.setPontosLiga(1);
-        time.setEmpates(1);
-    }
     
 }
