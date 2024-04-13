@@ -11,6 +11,15 @@ public class Liga extends Competicao {
         // sequencia de criterios: pontos, vitorias, saldo, gols marcados.
         
     }
+
+    public void iniciarLiga(){
+
+    }
+
+    public void inserirTimeLiga(Time time){
+        times.add(time);
+        System.out.println("Time inserido na liga.");
+    }
     
     private void registrarVitoria(Time time) {
         time.setPontosLiga(3);

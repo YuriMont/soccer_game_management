@@ -38,7 +38,7 @@ public class Confederacao {
     }
 
     //Vamos mudar isso
-    public void preeencher_Conf(){
+    public void preeencherConf(){
         Scanner s = new Scanner(System.in);
 
         System.out.print("Pais: ");

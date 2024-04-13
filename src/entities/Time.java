@@ -17,7 +17,7 @@ public class Time extends Confederacao {
     private int derrotas;
 
 
-    Time(){}
+    public Time(){}
 
     public Time(String pais, Liga liga, Copa copa, String nome, String acronimo, String estado, int nivel){
         super(pais, liga, copa);
@@ -95,14 +95,12 @@ public class Time extends Confederacao {
     }
 
     //explicar melhor
-    public int obter_Saldo(int golsMarcados, int golsSofridos){
+    public int obterSaldo(int golsMarcados, int golsSofridos){
         int saldo = golsMarcados - golsSofridos;
         return saldo;
     }
 
-    public int nivel_Time(){
-        // so decide o nivel do time e retorna.
-
+    public int nivelTime(){
         Scanner i = new Scanner(System.in);
 
         System.out.println("Nivel: ");
@@ -114,20 +112,16 @@ public class Time extends Confederacao {
         int nivel = i.nextInt();
         while(nivel < 1 || nivel > 5){
             System.out.println("Nivel invalido. Insira novamente.");
-            System.out.println("Nivel: ");
-            nivel = i.nextInt();
+            nivelTime();
         }
-
         return nivel;
     }
 
-    //modificar
-    public void preencher_Time(){
-        // preenche as informacoes do time
+    public void criarTime(){
         Scanner s = new Scanner(System.in);
         Scanner i = new Scanner(System.in);
-
-        preeencher_Conf();
+    
+        preeencherConf();
         System.out.print("Nome do time: ");
         String n = s.nextLine();
         setNome(n);
@@ -139,8 +133,10 @@ public class Time extends Confederacao {
         String estd = s.nextLine();
         estd.toUpperCase();
         setEstado(estd);
-        int nv = nivel_Time();
+        int nv = nivelTime();
         setNivel(nv);
+
+        System.out.println("Time criado!");
 
     }
 

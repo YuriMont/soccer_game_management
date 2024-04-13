@@ -5,6 +5,15 @@ import java.util.Random;
 
 public class Copa extends Competicao {
     private List<Time> times;
+
+    public void iniciarCopa(){
+
+    }
+
+    public void inserirTimeCopa(Time time){
+        times.add(time);
+        System.out.println("Time inserido na copa.");
+    }
     
     public void exibirMensagemDeErro(){
         final String[] MENSAGENS = {
