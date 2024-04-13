@@ -5,7 +5,15 @@ import java.util.Random;
 
 public class Copa extends Competicao {
     private List<Time> times;
+    
+    public List<Time> getTimes() {
+        return times;
+    }
 
+    public void setTimes(List<Time> times) {
+        this.times = times;
+    }
+    
     public void iniciarCopa(){
 
     }
@@ -105,5 +113,6 @@ public class Copa extends Competicao {
             System.out.println("A copa ainda está em andamento.");
         }
     }
+
     
 }
