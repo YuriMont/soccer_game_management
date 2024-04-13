@@ -16,8 +16,11 @@ public class Time extends Confederacao {
     private int empates;
     private int derrotas;
 
-
     public Time(){}
+
+    public Time(String pais, Liga liga, Copa copa){
+        super(pais, liga, copa);
+    }
 
     public Time(String pais, Liga liga, Copa copa, String nome, String acronimo, String estado, int nivel){
         super(pais, liga, copa);
@@ -34,7 +37,7 @@ public class Time extends Confederacao {
         this.nome = nome;
     }
     public String getAcronimo() {
-        return acronimo;
+        return acronimo.toUpperCase();
     }
     public void setAcronimo(String acronimo) {
         this.acronimo = acronimo;
@@ -70,7 +73,7 @@ public class Time extends Confederacao {
         this.golsSofridos = golsSofridos + getGolsSofridos();
     }
     public int getSaldoDeGols() {
-        return saldoDeGols;
+        return getGolsMarcados() - getGolsSofridos();
     }
     public void setSaldoDeGols(int saldoDeGols) {
         this.saldoDeGols = saldoDeGols;
@@ -121,7 +124,6 @@ public class Time extends Confederacao {
         Scanner s = new Scanner(System.in);
         Scanner i = new Scanner(System.in);
     
-        preeencherConf();
         System.out.print("Nome do time: ");
         String n = s.nextLine();
         setNome(n);

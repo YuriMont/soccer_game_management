@@ -16,6 +16,11 @@ public class Menu {
         return escolha;
     }
 
+    public int menuGeral(){
+        
+        return 0;
+    }
+
     public int escolhaCompeticao(){
         System.out.println("[1] - Adicionar na liga");
         System.out.println("[2] - Adicionar na copa");
@@ -38,6 +43,8 @@ public class Menu {
         }
         return escolha;
     }
+
+
 
     
     
