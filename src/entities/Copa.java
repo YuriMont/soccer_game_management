@@ -13,15 +13,19 @@ public class Copa extends Competicao {
     
     public void iniciarCopa(){
         if(getTimes().size() % 4 != 0){
-            System.out.println("Quantidade insuficiente de times.");
+            throw new RuntimeException("Quantidade insuficiente de times.");
         }else{
-            while(getTimes().size() != 1){
-                System.out.println(faseDaCopa());
-                for(int i = 0; i < getTimes().size() / 2; i++){
-                    for(int j = getTimes().size() - 1; j > getTimes().size() - 2; j--){
-                        if(!getTimes().get(i).equals(getTimes().get(j))){
-                            partidaCopa(getTimes().get(i), getTimes().get(j));
-                        }
+            while (times.size() != 1) {
+                for (int i = 0; i < times.size() / 2; i++) {
+                    if (times.size() % 4 == 0 || times.size() == 2) {
+                        System.out.println("- - - - - - - - - -");
+                        System.out.println(faseDaCopa());
+                    }
+
+                    int j = times.size() - 1 - i;
+
+                    if (!times.get(i).equals(times.get(j))) {
+                        partidaCopa(times.get(i), times.get(j));
                     }
                 }
             }
@@ -50,19 +54,6 @@ public class Copa extends Competicao {
         System.out.println("Time inserido na copa.");
     }
     
-    public void exibirMensagemDeErro(){
-        final String[] MENSAGENS = {
-                "Chutou pra fooooora!",
-                "Defende o goleiro!",
-                "Na traaaaave!!!",
-                "Ele escorregou e perdeu!"
-        };
-
-        Random random = new Random();
-        int indiceMensagem = random.nextInt(MENSAGENS.length);
-        System.out.println(MENSAGENS[indiceMensagem]);
-    }
-
     public Time decidirVencedorPenaltis(Time mandante, Time visitante) {
         Random random = new Random();
         int golsMandante = 0;
@@ -139,14 +130,6 @@ public class Copa extends Competicao {
         System.out.println("Vencedor: " + vencedor.getAcronimo());
         times.remove(index_perdedor);
 
-    }
-
-    public void campeaoDaCopa(){
-        if(times.size() == 1){
-            System.out.println("O " + times.get(0).getNome() + " é o campeão da Copa nacional!");
-        }else{
-            System.out.println("A copa ainda está em andamento.");
-        }
     }
 
     public List<Time> timesCopaPreDeterminada(){

@@ -12,7 +12,6 @@ public class Time{
     private int pontosLiga;
     private int golsMarcados;
     private int golsSofridos;
-    private int saldoDeGols;
     private int vitorias;
     private int empates;
     private int derrotas;
@@ -60,20 +59,12 @@ public class Time{
     public int getPontosLiga() {
         return pontosLiga;
     }
-    public void setPontosLiga(int pontosLiga) {
-        this.pontosLiga = pontosLiga + getPontosLiga();
-    }
     public int getGolsMarcados() {
         return golsMarcados;
     }
-    public void setGolsMarcados(int golsMarcados) {
-        this.golsMarcados = golsMarcados + getGolsMarcados();
-    }
+
     public int getGolsSofridos() {
         return golsSofridos;
-    }
-    public void setGolsSofridos(int golsSofridos) {
-        this.golsSofridos = golsSofridos + getGolsSofridos();
     }
     public int getSaldoDeGols() {
         return golsMarcados - golsSofridos;
@@ -81,20 +72,29 @@ public class Time{
     public int getVitorias() {
         return vitorias;
     }
-    public void setVitorias(int vitorias) {
-        this.vitorias = vitorias + getVitorias();
-    }
     public int getEmpates() {
         return empates;
-    }
-    public void setEmpates(int empates) {
-        this.empates = empates + getEmpates();
     }
     public int getDerrotas() {
         return derrotas;
     }
-    public void setDerrotas(int derrotas) {
+    public void adicionarGolsMarcados(int golsMarcados) {
+        this.golsMarcados = golsMarcados + getGolsMarcados();
+    }
+    public void adicionarGolsSofridos(int golsSofridos) {
+        this.golsSofridos = golsSofridos + getGolsSofridos();
+    }
+    public void adicionarVitorias(int vitorias) {
+        this.vitorias = vitorias + getVitorias();
+    }
+    public void adicionarDerrotas(int derrotas) {
         this.derrotas = derrotas + getDerrotas();
+    }
+    public void adicionarEmpates(int empates) {
+        this.empates = empates + getEmpates();
+    }
+    public void adicionarPontos(int pontosLiga) {
+        this.pontosLiga = pontosLiga + getPontosLiga();
     }
 
     public int nivelTime(){

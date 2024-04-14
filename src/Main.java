@@ -6,8 +6,6 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args){
-        Menu menu = new Menu();
-        
         List<Time> ligaTimesPreDeterminados = new ArrayList<>();
         Liga ligaPreDeterminada = new Liga("Brasileirao");
         ligaTimesPreDeterminados = ligaPreDeterminada.timesLigaPreDeterminada();
@@ -27,84 +25,35 @@ public class Main {
         Copa copa = new Copa("Copa");
         copa.setTimes(copaTimes);
 
+        Menu menu = new Menu();
+
 
         System.out.println("SEJA BEM-VINDO AO MUNDO DO FUTEBOL!");
         System.out.println("- (um oferecimento leprechaun e yuri) -");
         System.out.println(" ");
-        
-        int escolha = menu.menuInicial();
-        do{
-            switch (escolha) {
-                case 1:
-                    Time time = new Time();
-                    time.criarTime();
-                    liga.inserirTimeLiga(time);
-                    copa.inserirTimeCopa(time);
 
-                    break;
-                
-                case 2:
-                    switch(menu.escolhaCompeticao()) {
-                        case 1:
-                            switch(menu.menuGeralCompeticao()) {
-                                case 1:
-                                    liga.toString();
-                                    break;
-                                
-                                case 2:
-                                    liga.listarTimes();
-                                    break;
-
-                                case 3:
-                                    ligaPreDeterminada.listarTimes();
-                                    break;
-
-                                case 4:
-                                    liga.iniciarLiga();
-                                    System.out.println("- CLASSIFICACAO FINAL -");
-                                    liga.classificacao();
-                                    break;
-                                
-                                case 5:
-                                    ligaPreDeterminada.iniciarLiga();
-                                    System.out.println("- CLASSIFICACAO FINAL -");
-                                    ligaPreDeterminada.classificacao();
-                                    break;
-                            }
-                
-                        case 2:
-                            switch(menu.menuGeralCompeticao()) {
-                                case 1:
-                                    copa.toString();
-                                    break;
-                            
-                                case 2:
-                                    copa.listarTimes();
-                                    break;
-
-                                case 3:
-                                    copaPreDeterminada.listarTimes();
-                                    break;
-
-                                case 4:
-                                    copa.iniciarCopa();
-                                    break;
-
-                                case 5:
-                                    copaPreDeterminada.iniciarCopa();
-                                    break;
-                            }
-                    }
-
-                case 0:
-                    break;
-
-            };
-
+        int escolha;
+        do {
             escolha = menu.menuInicial();
-
-        }while(escolha != 0);
-        
+            try {
+                switch (escolha) {
+                    case 1:
+                        menu.adicionarTime(liga, copa);
+                        break;
+                    case 2:
+                        menu.escolherCompeticao(liga, copa, ligaPreDeterminada, copaPreDeterminada);
+                        break;
+                    case 0:
+                        System.out.println("Saindo do programa...");
+                        break;
+                    default:
+                        System.out.println("Escolha inválida.");
+                        break;
+                }
+            } catch (RuntimeException exception) {
+                System.out.println(exception.getMessage());
+            }
+        } while (escolha != 0);
 
     }
 }

@@ -22,9 +22,9 @@ public class Liga extends Competicao {
 
     public void classificacao(){
         organizarTabela();
-        System.out.println("º |   TIM   |  PT  |  VI  |  EM  |  DE  |  GM  |  GS  |  SG  ");
+        System.out.println(" PD |   TIM   |  PT  |  VI  |  EM  |  DE  |  GM  |  GS  |  SG  ");
         for(int i = 0; i < getTimes().size(); i++){
-            System.out.println((i+1) + " |   " + times.get(i));
+            System.out.println(String.format("%02d", (i+1)) + " |   " + times.get(i));
         }
         campeao();
     }
@@ -41,7 +41,7 @@ public class Liga extends Competicao {
 
     public void iniciarLiga(){
         if(getTimes().size() < 4){
-            System.out.println("Quantidade insuficiente de times.");
+            throw new RuntimeException("Quantidade insuficiente de times.");
         }else{
             System.out.println("- 1º turno -");
             turno();
@@ -56,23 +56,23 @@ public class Liga extends Competicao {
     }
     
     private void registrarVitoria(Time time) {
-        time.setPontosLiga(3);
-        time.setVitorias(1);
+        time.adicionarPontos(3);
+        time.adicionarVitorias(1);
     }
 
     private void registrarDerrota(Time time) {
-        time.setPontosLiga(0);
-        time.setDerrotas(1);
+        time.adicionarPontos(0);
+        time.adicionarDerrotas(1);
     }
 
     private void registrarEmpate(Time time) {
-        time.setPontosLiga(1);
-        time.setEmpates(1);
+        time.adicionarPontos(1);
+        time.adicionarEmpates(1);
     }
 
     private void registrarGols(Time time, int golsMarcados, int golsSofridos){
-        time.setGolsMarcados(golsMarcados);
-        time.setGolsSofridos(golsSofridos);
+        time.adicionarGolsMarcados(golsMarcados);
+        time.adicionarGolsSofridos(golsSofridos);
     }
 
     public void partidaLiga(Time mandante, Time visitante){
