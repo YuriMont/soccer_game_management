@@ -121,22 +121,21 @@ public class Time extends Confederacao {
     }
 
     public void criarTime(){
-        Scanner s = new Scanner(System.in);
-        Scanner i = new Scanner(System.in);
+        Scanner scanString = new Scanner(System.in);
     
         System.out.print("Nome do time: ");
-        String n = s.nextLine();
-        setNome(n);
+        String nomeTime = scanString.nextLine();
+        setNome(nomeTime);
         System.out.print("Acronimo (3 letras): ");
-        String ac = s.nextLine();
-        ac.toUpperCase();
-        setAcronimo(ac);
+        String acronimoTime = scanString.nextLine();
+        acronimoTime.toUpperCase();
+        setAcronimo(acronimoTime);
         System.out.print("Estado (sigla): ");
-        String estd = s.nextLine();
-        estd.toUpperCase();
-        setEstado(estd);
-        int nv = nivelTime();
-        setNivel(nv);
+        String estadoTime = scanString.nextLine();
+        estadoTime.toUpperCase();
+        setEstado(estadoTime);
+        int nivel = nivelTime();
+        setNivel(nivel);
 
         System.out.println("Time criado!");
 

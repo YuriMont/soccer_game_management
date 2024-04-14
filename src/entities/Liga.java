@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Liga extends Competicao {
@@ -14,10 +16,11 @@ public class Liga extends Competicao {
     }
 
     public void organizarTabela(){
-        //organizar o array pelos pontos. 
+        //organizar o array do maior para o menor pelos pontos.
+        Collections.sort(times, Comparator.comparingInt(Time::getPontosLiga).reversed());
     }
 
-    public void Classificacao(){
+    public void classificacao(){
         System.out.println("º |   TIM   |  P  |  V  |  E  |  D  |  GM  |  GS  |  SG  ");
         for(int i = 0; i < getTimes().size(); i++){
             System.out.println((i+1) + " |   " + getTimes().get(i).getAcronimo() + "   |  " + getTimes().get(i).getPontosLiga() + "  |  " + 
@@ -30,7 +33,7 @@ public class Liga extends Competicao {
     private void turno(){
         for(int i = 0; i < getTimes().size(); i++){
             for(int j = i+1; j < getTimes().size(); j++){
-                if(getTimes().get(i) != getTimes().get(j)){
+                if(!getTimes().get(i).equals(getTimes().get(j))){
                     partidaLiga(getTimes().get(i), getTimes().get(j));
                 }
             }

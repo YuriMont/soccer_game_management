@@ -1,7 +1,6 @@
 import entities.*;
 import exceptions.*;
 import infra.*;
-import repositories.*;
 import menus.*;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -12,6 +11,12 @@ public class Main {
     public static void main(String[] args){
         Menu menu = new Menu();
         List<Time> times = new ArrayList<>();
+
+        times.add(new Time("Brasil", new Liga(), new Copa(), "Flamengo", "FLA", "RJ", 2));
+        times.add(new Time("Brasil", new Liga(), new Copa(), "Palmeiras", "PAL", "SP", 2));
+        times.add(new Time("Brasil", new Liga(), new Copa(), "Corinthians", "COR", "SP", 2));
+        times.add(new Time("Brasil", new Liga(), new Copa(), "Santos", "SAN", "SP", 2));
+
         Liga liga = new Liga();
         liga.setTimes(times);
         Copa copa = new Copa();
@@ -47,7 +52,7 @@ public class Main {
                         case 1:
                             liga.iniciarLiga();
                             System.out.println("- CLASSIFICACAO FINAL -");
-                            liga.Classificacao();
+                            liga.classificacao();
                             break;
                         case 2:
                             copa.iniciarCopa();
