@@ -21,11 +21,10 @@ public class Liga extends Competicao {
     }
 
     public void classificacao(){
-        System.out.println("º |   TIM   |  P  |  V  |  E  |  D  |  GM  |  GS  |  SG  ");
+        organizarTabela();
+        System.out.println("º |   TIM   |  PO  |  VI  |  EM  |  DE  |  GM  |  GS  |  SG  ");
         for(int i = 0; i < getTimes().size(); i++){
-            System.out.println((i+1) + " |   " + getTimes().get(i).getAcronimo() + "   |  " + getTimes().get(i).getPontosLiga() + "  |  " + 
-            getTimes().get(i).getVitorias() + "  |  " + getTimes().get(i).getEmpates() + "  |  " + getTimes().get(i).getDerrotas() + "  |  "
-            + getTimes().get(i).getGolsMarcados() + "  |  " + getTimes().get(i).getGolsSofridos() + "  |  " + getTimes().get(i).getSaldoDeGols());
+            System.out.println((i+1) + " |   " + times.get(i));
         }
         
     }

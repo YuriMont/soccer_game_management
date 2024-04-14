@@ -73,7 +73,7 @@ public class Time extends Confederacao {
         this.golsSofridos = golsSofridos + getGolsSofridos();
     }
     public int getSaldoDeGols() {
-        return getGolsMarcados() - getGolsSofridos();
+        return golsMarcados - golsSofridos;
     }
     public void setSaldoDeGols(int saldoDeGols) {
         this.saldoDeGols = saldoDeGols;
@@ -95,12 +95,6 @@ public class Time extends Confederacao {
     }
     public void setDerrotas(int derrotas) {
         this.derrotas = derrotas + getDerrotas();
-    }
-
-    //explicar melhor
-    public int obterSaldo(int golsMarcados, int golsSofridos){
-        int saldo = golsMarcados - golsSofridos;
-        return saldo;
     }
 
     public int nivelTime(){
@@ -141,4 +135,18 @@ public class Time extends Confederacao {
 
     }
 
+    private String editarNumero(int numero){
+        if (numero < 0) {
+            return "-" + editarNumero(Math.abs(numero));
+        } else {
+            return String.format("%02d", numero);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return acronimo + "   |  " + editarNumero(pontosLiga) + "  |  " +
+                editarNumero(vitorias) + "  |  " + editarNumero(empates) + "  |  " + editarNumero(derrotas) + "  |  " +
+                editarNumero(golsMarcados) + "  |  " + editarNumero(golsSofridos) + "  |  " + editarNumero(getSaldoDeGols());
+    }
 }

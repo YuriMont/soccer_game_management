@@ -28,9 +28,9 @@ public class Competicao {
     }
 
     private int getMaxGolsPorNivel(int nivel) {
-        final int[] MAX_GOLS_POR_NIVEL = {0, 2, 3, 4, 4, 4};
+        final int[] MAX_GOLS_POR_NIVEL = { 2, 3, 4, 4, 4};
         if (nivel >= 1 && nivel <= 5) {
-            return MAX_GOLS_POR_NIVEL[nivel];
+            return MAX_GOLS_POR_NIVEL[nivel-1];
         } else {
             throw new IllegalArgumentException("Nível inválido: " + nivel);
         }
