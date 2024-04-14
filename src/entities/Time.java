@@ -2,10 +2,11 @@ package entities;
 
 import java.util.Scanner;
 
-public class Time extends Confederacao {
+public class Time{
 
     private String nome;
     private String acronimo;
+    private String pais;
     private String estado;
     private int nivel = 1;
     private int pontosLiga;
@@ -18,14 +19,10 @@ public class Time extends Confederacao {
 
     public Time(){}
 
-    public Time(String pais, Liga liga, Copa copa){
-        super(pais, liga, copa);
-    }
-
-    public Time(String pais, Liga liga, Copa copa, String nome, String acronimo, String estado, int nivel){
-        super(pais, liga, copa);
+    public Time(String nome, String acronimo, String pais, String estado, int nivel){
         this.nome = nome;
         this.acronimo = acronimo;
+        this.pais = pais;
         this.estado = estado;
         this.nivel = nivel;
     }
@@ -41,6 +38,12 @@ public class Time extends Confederacao {
     }
     public void setAcronimo(String acronimo) {
         this.acronimo = acronimo;
+    }
+    public String getPais(){
+        return pais;
+    }
+    public void setPais(String pais){
+        this.pais = pais;
     }
     public String getEstado() {
         return estado;
@@ -74,9 +77,6 @@ public class Time extends Confederacao {
     }
     public int getSaldoDeGols() {
         return golsMarcados - golsSofridos;
-    }
-    public void setSaldoDeGols(int saldoDeGols) {
-        this.saldoDeGols = saldoDeGols;
     }
     public int getVitorias() {
         return vitorias;
@@ -124,6 +124,9 @@ public class Time extends Confederacao {
         String acronimoTime = scanString.nextLine();
         acronimoTime.toUpperCase();
         setAcronimo(acronimoTime);
+        System.out.println("Pais: ");
+        String paisTime = scanString.nextLine();
+        setPais(paisTime);
         System.out.print("Estado (sigla): ");
         String estadoTime = scanString.nextLine();
         estadoTime.toUpperCase();

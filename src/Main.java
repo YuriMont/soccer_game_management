@@ -1,8 +1,5 @@
 import entities.*;
-import exceptions.*;
-import infra.*;
 import menus.*;
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,54 +7,93 @@ public class Main {
 
     public static void main(String[] args){
         Menu menu = new Menu();
-        List<Time> times = new ArrayList<>();
+        
+        List<Time> ligaTimesPreDeterminados = new ArrayList<>();
+        Liga ligaPreDeterminada = new Liga("Brasileirao");
+        ligaTimesPreDeterminados = ligaPreDeterminada.timesLigaPreDeterminada();
+        ligaPreDeterminada.setTimes(ligaTimesPreDeterminados);
+        
+        List<Time> copaTimesPreDeterminados = new ArrayList<>();
+        Copa copaPreDeterminada = new Copa("Libertadores");
+        copaTimesPreDeterminados = copaPreDeterminada.timesCopaPreDeterminada();
+        copaPreDeterminada.setTimes(copaTimesPreDeterminados);
 
-        times.add(new Time("Brasil", new Liga(), new Copa(), "Flamengo", "FLA", "RJ", 2));
-        times.add(new Time("Brasil", new Liga(), new Copa(), "Palmeiras", "PAL", "SP", 2));
-        times.add(new Time("Brasil", new Liga(), new Copa(), "Corinthians", "COR", "SP", 2));
-        times.add(new Time("Brasil", new Liga(), new Copa(), "Santos", "SAN", "SP", 2));
 
-        Liga liga = new Liga();
-        liga.setTimes(times);
-        Copa copa = new Copa();
-        copa.setTimes(times);
+        List<Time> ligaTimes = new ArrayList<>();
+        Liga liga = new Liga("Liga");
+        liga.setTimes(ligaTimes);
+
+        List<Time> copaTimes = new ArrayList<>();
+        Copa copa = new Copa("Copa");
+        copa.setTimes(copaTimes);
 
 
         System.out.println("SEJA BEM-VINDO AO MUNDO DO FUTEBOL!");
         System.out.println("- (um oferecimento leprechaun e yuri) -");
         System.out.println(" ");
-
+        
         int escolha = menu.menuInicial();
         do{
             switch (escolha) {
                 case 1:
-                    Time time = new Time("Brasil", liga, copa);
+                    Time time = new Time();
                     time.criarTime();
-                    switch (menu.escolhaCompeticao()) {
-                        case 1:
-                            liga.inserirTimeLiga(time);
-                            break;
-                        case 2:
-                            copa.inserirTimeCopa(time);
-                            break;
-                        case 3:
-                            liga.inserirTimeLiga(time);
-                            copa.inserirTimeCopa(time);
-                            break;
-                    }
+                    liga.inserirTimeLiga(time);
+                    copa.inserirTimeCopa(time);
+
                     break;
                 
                 case 2:
-                    switch (menu.jogarCompeticao()) {
+                    switch(menu.escolhaCompeticao()) {
                         case 1:
-                            liga.iniciarLiga();
-                            System.out.println("- CLASSIFICACAO FINAL -");
-                            liga.classificacao();
-                            break;
+                            switch(menu.menuGeralCompeticao()) {
+                                case 1:
+                                    liga.toString();
+                                    break;
+                                
+                                case 2:
+                                    liga.listarTimes();
+                                    break;
+
+                                case 3:
+                                    ligaPreDeterminada.listarTimes();
+                                    break;
+
+                                case 4:
+                                    liga.iniciarLiga();
+                                    System.out.println("- CLASSIFICACAO FINAL -");
+                                    liga.classificacao();
+                                    break;
+                                
+                                case 5:
+                                    ligaPreDeterminada.iniciarLiga();
+                                    System.out.println("- CLASSIFICACAO FINAL -");
+                                    ligaPreDeterminada.classificacao();
+                                    break;
+                            }
+                
                         case 2:
-                            copa.iniciarCopa();
-                            copa.campeaoDaCopa();;
-                            break;
+                            switch(menu.menuGeralCompeticao()) {
+                                case 1:
+                                    copa.toString();
+                                    break;
+                            
+                                case 2:
+                                    copa.listarTimes();
+                                    break;
+
+                                case 3:
+                                    copaPreDeterminada.listarTimes();
+                                    break;
+
+                                case 4:
+                                    copa.iniciarCopa();
+                                    break;
+
+                                case 5:
+                                    copaPreDeterminada.iniciarCopa();
+                                    break;
+                            }
                     }
 
                 case 0:

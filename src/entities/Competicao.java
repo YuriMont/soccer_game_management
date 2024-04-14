@@ -1,13 +1,25 @@
 package entities;
-
+import java.util.List;
 import java.util.Random;
 
 public class Competicao {
 
     protected String nome;
-    protected Confederacao confederacao;
+    protected List<Time> times;
     
-    Competicao(){}
+    public Competicao(){}
+
+    public Competicao(String nome, List<Time> times){
+        this.times = times;
+    }
+
+    public List<Time> getTimes() {
+        return times;
+    }
+
+    public void setTimes(List<Time> times) {
+        this.times = times;
+    }
     
     public String getNome() {
         return nome;
@@ -15,11 +27,13 @@ public class Competicao {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public Confederacao getConfederacao() {
-        return confederacao;
-    }
-    public void setConfederacao(Confederacao confederacao) {
-        this.confederacao = confederacao;
+
+    public void campeao(){
+        if(times.size() > 1){
+            System.out.println("O " + times.get(0).getNome() + " é o campeão de " + getNome());
+        }else{
+            System.out.println("O " + times.get(0).getNome() + " é o campeão da " + getNome());
+        }
     }
 
     public int gerarGolsEsperados(Time time) {
@@ -35,4 +49,11 @@ public class Competicao {
             throw new IllegalArgumentException("Nível inválido: " + nivel);
         }
     }
+
+    public void listarTimes(){
+        for(int i = 0; i < getTimes().size(); i++){
+            System.out.println(getTimes().get(i).getAcronimo() + ": " + getTimes().get(i).getNome() + ", " + getTimes().get(i).getPais());
+        }
+    }
+    
 }
