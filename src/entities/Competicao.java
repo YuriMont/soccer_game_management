@@ -29,11 +29,8 @@ public class Competicao {
     }
 
     public void campeao(){
-        if(times.size() > 1){
-            System.out.println("O " + times.get(0).getNome() + " é o campeão de " + getNome());
-        }else{
-            System.out.println("O " + times.get(0).getNome() + " é o campeão da " + getNome());
-        }
+        System.out.println(" ");
+        System.out.println("> > CAMPEAO: " + times.get(0).getNome() + " < <");
     }
 
     public int gerarGolsEsperados(Time time) {
@@ -54,6 +51,7 @@ public class Competicao {
         for(int i = 0; i < getTimes().size(); i++){
             System.out.println(getTimes().get(i).getAcronimo() + ": " + getTimes().get(i).getNome() + ", " + getTimes().get(i).getPais());
         }
+        System.out.println(" ");
     }
     
 }

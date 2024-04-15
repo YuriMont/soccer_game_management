@@ -124,7 +124,7 @@ public class Time{
         String acronimoTime = scanString.nextLine();
         acronimoTime.toUpperCase();
         setAcronimo(acronimoTime);
-        System.out.println("Pais: ");
+        System.out.print("Pais: ");
         String paisTime = scanString.nextLine();
         setPais(paisTime);
         System.out.print("Estado (sigla): ");

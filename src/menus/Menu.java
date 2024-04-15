@@ -2,7 +2,8 @@ package menus;
 import entities.Copa;
 import entities.Liga;
 import entities.Time;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -27,13 +28,13 @@ public class Menu {
 
     public void menuGeralCompeticaoCopa(Copa copa, Copa copaPreDeterminada) {
         int opcao;
-
         do {
             opcao = menuGeralCompeticao();
 
             switch (opcao) {
                 case 1:
-                    copa.toString();
+                    System.out.println(copa.toString());
+                    System.out.println(" ");
                     break;
                 case 2:
                     copa.listarTimes();
@@ -43,13 +44,9 @@ public class Menu {
                     break;
                 case 4:
                     copa.iniciarCopa();
-                    System.out.println("- CLASSIFICAÇÃO FINAL -");
-                    copa.campeao();
                     break;
                 case 5:
                     copaPreDeterminada.iniciarCopa();
-                    System.out.println("- CLASSIFICAÇÃO FINAL -");
-                    copaPreDeterminada.campeao();
                     break;
                 case 0:
                     break;
@@ -67,7 +64,8 @@ public class Menu {
 
             switch (opcao) {
                 case 1:
-                    liga.toString();
+                    System.out.println(liga.toString());
+                    System.out.println(" ");
                     break;
                 case 2:
                     liga.listarTimes();
@@ -78,10 +76,12 @@ public class Menu {
                 case 4:
                     liga.iniciarLiga();
                     System.out.println("- CLASSIFICAÇÃO FINAL -");
+                    System.out.println(" ");
                     liga.classificacao();
                     break;
                 case 5:
                     ligaPreDeterminada.iniciarLiga();
+                    System.out.println(" ");
                     System.out.println("- CLASSIFICAÇÃO FINAL -");
                     ligaPreDeterminada.classificacao();
                     break;
@@ -98,13 +98,16 @@ public class Menu {
         time.criarTime();
         liga.inserirTimeLiga(time);
         copa.inserirTimeCopa(time);
+        System.out.println(" ");
     }
 
     public int menuInicial(){
+        System.out.println("[MENU INICIAL]");
         System.out.println("[1] - Criar novo time");
         System.out.println("[2] - Ver competicao");
         System.out.println("[0] - Sair");
         int escolha = scanner.nextInt();
+        System.out.println(" ");
         if(escolha > 2 || escolha < 0){
             throw new RuntimeException("Escolha invalida. Insira novamente.");
         }
@@ -112,13 +115,15 @@ public class Menu {
     }
 
     public int menuGeralCompeticao(){
-        System.out.println("[0] - Sair");
+        System.out.println("[MENU DE COMPETICAO]");
         System.out.println("[1] - Listar informacoes");
         System.out.println("[2] - Listar times");
         System.out.println("[3] - Listar times pré-determinados");
         System.out.println("[4] - Jogar competicao com times criados");
         System.out.println("[5] - Jogar competicao com times pré-determinados");
+        System.out.println("[0] - Voltar ao menu incial");
         int escolha = scanner.nextInt();
+        System.out.println(" ");
         if(escolha > 5 || escolha < 0){
             System.out.println("Escolha invalida. Insira novamente.");
             menuGeralCompeticao();
@@ -127,9 +132,11 @@ public class Menu {
     }
 
     public int escolhaCompeticao(){
+        System.out.println("[ESCOLHA DE COMPETICAO]");
         System.out.println("[1] - Liga");
         System.out.println("[2] - Copa");
         int escolha = scanner.nextInt();
+        System.out.println(" ");
         if(escolha > 2 || escolha < 1){
             System.out.println("Escolha invalida. Insira novamente.");
             escolhaCompeticao();

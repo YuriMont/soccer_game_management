@@ -22,11 +22,12 @@ public class Liga extends Competicao {
 
     public void classificacao(){
         organizarTabela();
-        System.out.println(" PD |   TIM   |  PT  |  VI  |  EM  |  DE  |  GM  |  GS  |  SG  ");
+        System.out.println("Pº |   TIM   |  PT  |  VI  |  EM  |  DE  |  GM  |  GS  |  SG  ");
         for(int i = 0; i < getTimes().size(); i++){
             System.out.println(String.format("%02d", (i+1)) + " |   " + times.get(i));
         }
         campeao();
+        System.out.println(" ");
     }
 
     private void turno(){
@@ -99,7 +100,7 @@ public class Liga extends Competicao {
     public List<Time> timesLigaPreDeterminada(){
         List<Time> timesPreDeterminados = new ArrayList<>();
 
-        timesPreDeterminados.add(new Time("Atletico Goianiense", "ACG", "Brasil", "GO", 2));
+        timesPreDeterminados.add(new Time("Atletico Goianiense", "ACG", "Brasil", "GO", 1));
         timesPreDeterminados.add(new Time("Atletico Mineiro", "CAM", "Brasil", "MG", 5));
         timesPreDeterminados.add(new Time("Athletico", "CAP", "Brasil", "PR", 3));
         timesPreDeterminados.add(new Time("Bahia", "BAH", "Brasil", "BA", 3));
@@ -118,7 +119,7 @@ public class Liga extends Competicao {
         timesPreDeterminados.add(new Time("Red Bull Bragantino", "RBB", "Brasil", "SP", 3));
         timesPreDeterminados.add(new Time("Sao Paulo", "SAO", "Brasil", "SP", 4));
         timesPreDeterminados.add(new Time("Vasco", "VAS", "Brasil", "RJ", 2));
-        timesPreDeterminados.add(new Time("Vitoria", "VIT", "Brasil", "BAH", 2));
+        timesPreDeterminados.add(new Time("Vitoria", "VIT", "Brasil", "BAH", 1));
 
         return timesPreDeterminados;
     }
