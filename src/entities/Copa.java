@@ -30,6 +30,9 @@ public class Copa extends Competicao {
                 }
             }
             campeao();
+            System.out.println(" ");
+            times.remove(0);
+            setTimes(timesCopaPreDeterminada());
         }
     }
 
@@ -45,7 +48,7 @@ public class Copa extends Competicao {
             case 2:
                 return "- Final -";
             default:
-                return "- Fases preliminares -";
+                return "";
         }
     }
 
