@@ -8,8 +8,7 @@ public class Copa extends Competicao {
     public Copa(){}
 
     public Copa(String nome){
-        this.nome = nome;
-        times = new ArrayList<>();
+       super(nome);
     }
     
     public void iniciarCopa(){

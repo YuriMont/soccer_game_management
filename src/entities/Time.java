@@ -97,7 +97,7 @@ public class Time{
         this.pontosLiga = pontosLiga + getPontosLiga();
     }
 
-    public int nivelTime(){
+    public int informarNivelTime(){
         Scanner i = new Scanner(System.in);
 
         System.out.println("Nivel: ");
@@ -109,7 +109,7 @@ public class Time{
         int nivel = i.nextInt();
         while(nivel < 1 || nivel > 5){
             System.out.println("Nivel invalido. Insira novamente.");
-            nivelTime();
+            informarNivelTime();
         }
         return nivel;
     }
@@ -131,7 +131,7 @@ public class Time{
         String estadoTime = scanString.nextLine();
         estadoTime.toUpperCase();
         setEstado(estadoTime);
-        int nivel = nivelTime();
+        int nivel = informarNivelTime();
         setNivel(nivel);
 
         System.out.println("Time criado!");

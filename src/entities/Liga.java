@@ -9,8 +9,7 @@ public class Liga extends Competicao {
     public Liga(){}
 
     public Liga(String nome){
-        this.nome = nome;
-        times = new ArrayList<>();
+        super(nome);
     }
 
     public Liga(String nome, List<Time> times){

@@ -9,7 +9,12 @@ public class Competicao {
     protected List<Time> times;
     
     public Competicao(){
-        times = new ArrayList<>();
+        this.times = new ArrayList<>();
+    }
+
+    public Competicao(String nome){
+        this.nome = nome;
+        this.times = new ArrayList<>();
     }
 
     public Competicao(String nome, List<Time> times){
