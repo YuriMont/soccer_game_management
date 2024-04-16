@@ -9,6 +9,7 @@ public class Copa extends Competicao {
 
     public Copa(String nome){
         this.nome = nome;
+        times = new ArrayList<>();
     }
     
     public void iniciarCopa(){

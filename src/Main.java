@@ -1,5 +1,6 @@
 import entities.*;
 import menus.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +17,9 @@ public class Main {
         copaTimesPreDeterminados = copaPreDeterminada.timesCopaPreDeterminada();
         copaPreDeterminada.setTimes(copaTimesPreDeterminados);
 
-
-        List<Time> ligaTimes = new ArrayList<>();
         Liga liga = new Liga("Liga");
-        liga.setTimes(ligaTimes);
 
-        List<Time> copaTimes = new ArrayList<>();
         Copa copa = new Copa("Copa");
-        copa.setTimes(copaTimes);
 
         Menu menu = new Menu();
 

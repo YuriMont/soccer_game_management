@@ -2,8 +2,6 @@ package menus;
 import entities.Copa;
 import entities.Liga;
 import entities.Time;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -144,5 +142,5 @@ public class Menu {
         return escolha;
     }
 
-    
+
 }

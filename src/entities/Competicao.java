@@ -1,4 +1,5 @@
 package entities;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -7,7 +8,9 @@ public class Competicao {
     protected String nome;
     protected List<Time> times;
     
-    public Competicao(){}
+    public Competicao(){
+        times = new ArrayList<>();
+    }
 
     public Competicao(String nome, List<Time> times){
         this.times = times;
