@@ -1,29 +1,8 @@
-import entities.*;
 import menus.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
-
     public static void main(String[] args){
-        List<Time> ligaTimesPreDeterminados = new ArrayList<>();
-        Liga ligaPreDeterminada = new Liga("Brasileirao");
-        ligaTimesPreDeterminados = ligaPreDeterminada.timesLigaPreDeterminada();
-        ligaPreDeterminada.setTimes(ligaTimesPreDeterminados);
-        
-        List<Time> copaTimesPreDeterminados = new ArrayList<>();
-        Copa copaPreDeterminada = new Copa("Libertadores");
-        copaTimesPreDeterminados = copaPreDeterminada.timesCopaPreDeterminada();
-        copaPreDeterminada.setTimes(copaTimesPreDeterminados);
-
-        Liga liga = new Liga("Liga");
-
-        Copa copa = new Copa("Copa");
-
         Menu menu = new Menu();
-
-
         System.out.println("SEJA BEM-VINDO AO MUNDO DO FUTEBOL!");
         System.out.println("- (um oferecimento leprechaun e yuri) -");
         System.out.println(" ");
@@ -34,10 +13,10 @@ public class Main {
             try {
                 switch (escolha) {
                     case 1:
-                        menu.adicionarTime(liga, copa);
+                        menu.menuEscolhaLigas();
                         break;
                     case 2:
-                        menu.escolherCompeticao(liga, copa, ligaPreDeterminada, copaPreDeterminada);
+                        menu.menuEscolhaCopas();
                         break;
                     case 0:
                         System.out.println("Saindo do programa...");
