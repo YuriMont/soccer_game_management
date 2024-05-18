@@ -143,24 +143,22 @@ public class Time{
         return nivel;
     }
 
-    public void criarTime(){
+    public Time criarTime(){
         System.out.print("Nome do time: ");
         String nomeTime = scanner.nextLine();
-        setNome(nomeTime);
 
         System.out.print("Acronimo (3 letras): ");
         String acronimoTime = scanner.nextLine();
-        acronimoTime.toUpperCase();
-        setAcronimo(acronimoTime);
 
         System.out.print("Pais: ");
         String paisTime = scanner.nextLine();
-        setPais(paisTime);
+        int nivelTime = informarNivelTime();
 
-        int nivel = informarNivelTime();
-        setNivel(nivel);
+        Time time = new Time(nomeTime, acronimoTime.toUpperCase(), paisTime, nivelTime);
 
         System.out.println("Time criado!");
+
+        return time;
     }
 
     private String editarNumero(int numero){

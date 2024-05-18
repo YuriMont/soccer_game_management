@@ -10,7 +10,8 @@ public class Premier extends Liga{
     
     public Premier(String nome){ super(nome); }
     
-    public void timesPremier(){
+    @Override
+    public void competidores(){
         List<Time> timesPL = new ArrayList<>();
         
         timesPL.add(new Time("Arsenal", "ARS", "Inglaterra", 5));

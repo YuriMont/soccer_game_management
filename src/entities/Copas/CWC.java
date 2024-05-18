@@ -13,7 +13,7 @@ public class CWC extends Copa{
     public CWC(String nome){ super(nome); }
 
     @Override
-    public void timesFaseDeGrupos(){
+    public void competidoresFaseDeGrupos(){
         List<List<Time>> gruposGeral = new ArrayList<>();
 
         List<Time> gA = new ArrayList<>();

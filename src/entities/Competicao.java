@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-public class Competicao {
+public abstract class Competicao implements Competidores{
     protected String nome;
     protected List<Time> times;
     protected Scanner pausa = new Scanner(System.in);
@@ -24,21 +24,27 @@ public class Competicao {
         this.times = times;
     }
 
-    public List<Time> getTimes() {
+    public List<Time> getTimes(){
         return times;
     }
 
-    public void setTimes(List<Time> times) {
+    public void setTimes(List<Time> times){
         this.times = times;
     }
     
-    public String getNome() {
+    public String getNome(){
         return nome;
     }
-    public void setNome(String nome) {
+    public void setNome(String nome){
         this.nome = nome;
     }
     
+    @Override
+    public void competidores(){}
+
+    @Override
+    public void competidoresFaseDeGrupos(){}
+
     public void campeao(){
         System.out.println(" ");
         System.out.println("> > CAMPEAO: " + times.get(0).getNome() + " < <");
@@ -78,7 +84,7 @@ public class Competicao {
     }
     
     //////////////////////////////////////////////////// FUNCOES DE PARTIDAS //////////////////////////////////////////////////////////
-    
+
     public int gerarGolsEsperados(Time mandante, Time visitante){
         Random randomico = new Random();
 
@@ -177,7 +183,7 @@ public class Competicao {
         lista.add(time);
 
         if(verificarTime(time, lista)){
-            System.out.println("Time inserido na liga. Inserir mais? s/n");
+            System.out.println("Time inserido. Inserir mais? s/n");
             String escolha = pausa.nextLine();
             while(!escolha.equalsIgnoreCase("n")){
                 Time novoTime = new Time();
@@ -185,7 +191,7 @@ public class Competicao {
                 lista.add(novoTime);
     
                 if(verificarTime(time, lista)){
-                System.out.println("Time inserido na liga. Inserir mais? s/n");
+                System.out.println("Time inserido. Inserir mais? s/n");
                 escolha = pausa.nextLine();
                 }
             }
