@@ -90,28 +90,28 @@ public class Menu {
                     break;
     
                 case 2:
-                    brasileirao.timesBrasileirao();
+                    brasileirao.competidores();
                     if(opcao==1){ brasileirao.iniciarLiga(); }
                     else if(opcao==2){ brasileirao.listarTimes(); }
                     else { brasileirao.informacoesCompeticao(); }
                     break;
     
                 case 3:
-                    premier.timesPremier();
+                    premier.competidores();
                     if(opcao==1){ premier.iniciarLiga(); }
                     else if(opcao==2){ premier.listarTimes(); }
                     else{ premier.informacoesCompeticao(); }
                     break;
     
                 case 4:
-                    laliga.timesLaLiga();
+                    laliga.competidores();
                     if(opcao==1){ laliga.iniciarLiga(); }
                     else if(opcao==2){ laliga.listarTimes(); }
                     else{ laliga.informacoesCompeticao(); }
                     break;
     
                 case 5:
-                    paraibano.timesParaibano();
+                    paraibano.competidores();
                     if(opcao==1){ paraibano.iniciarLiga(); }
                     else if(opcao==2){ paraibano.listarTimes(); }
                     else{ paraibano.informacoesCompeticao(); }
@@ -148,28 +148,28 @@ public class Menu {
                     break;
     
                 case 2:
-                    copaDoBrasil.timesCopaDoBrasil();
+                    copaDoBrasil.competidores();
                     if(opcao==1){ copaDoBrasil.iniciarCopa(); }
                     else if(opcao==2){ copaDoBrasil.listarTimes(); }
                     else { copaDoBrasil.informacoesCompeticao(); }
                     break;
     
                 case 3:
-                    libertadores.timesFaseDeGrupos();
+                    libertadores.competidoresFaseDeGrupos();
                     if(opcao==1){ libertadores.faseDeGrupos(); libertadores.iniciarCopa(); }
                     else if(opcao==2){ libertadores.listarTimes(); }
                     else{ libertadores.informacoesCompeticao(); }
                     break;
     
                 case 4:
-                    champions.timesFaseDeGrupos();
+                    champions.competidoresFaseDeGrupos();
                     if(opcao==1){ champions.faseDeGrupos(); champions.iniciarCopa(); }
                     else if(opcao==2){ champions.listarTimes(); }
                     else{ champions.informacoesCompeticao(); }
                     break;
     
                 case 5:
-                    copaDoMundo.timesFaseDeGrupos();
+                    copaDoMundo.competidoresFaseDeGrupos();
                     if(opcao==1){ copaDoMundo.faseDeGrupos(); copaDoMundo.iniciarCopa(); }
                     else if(opcao==2){ copaDoMundo.listarSelecoes(); }
                     else{ copaDoMundo.informacoesCompeticao(); }

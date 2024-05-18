@@ -11,7 +11,8 @@ public class CdB extends Copa{
 
     public CdB(String nome){ super(nome); }
     
-    public void timesCopaDoBrasil(){
+    @Override
+    public void competidores(){
         List<Time> timesCdB = new ArrayList<>();
 
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Bahia", "BAH", "Brasil", 3));

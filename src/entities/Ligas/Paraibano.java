@@ -10,7 +10,8 @@ public class Paraibano extends Liga{
 
     public Paraibano(String nome){ super(nome); }
 
-    public void timesParaibano(){
+    @Override
+    public void competidores(){
         List<Time> timesPB = new ArrayList<>();
     
         timesPB.add(new Time("Atletico Cajazeiras", "ACD", "Brasil", 1));

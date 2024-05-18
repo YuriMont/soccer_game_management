@@ -1,7 +1,8 @@
 package entities;
 import java.util.List;
 
-public class Liga extends Competicao {
+
+public class Liga extends Competicao{
 
     public Liga(){}
 
@@ -11,6 +12,11 @@ public class Liga extends Competicao {
 
     public Liga(String nome, List<Time> times){
         super(nome, times);
+    }
+
+    @Override
+    public void competidores(){
+        super.competidores();
     }
     
     public void iniciarLiga(){

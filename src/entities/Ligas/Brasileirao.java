@@ -10,7 +10,8 @@ public class Brasileirao extends Liga{
 
     public Brasileirao(String nome){ super(nome); }
 
-    public void timesBrasileirao(){
+    @Override
+    public void competidores(){
         List<Time> timesBR = new ArrayList<>();
         
         timesBR.add(new Time("Atlético Goianiense", "ACG", "Brasil", 1));

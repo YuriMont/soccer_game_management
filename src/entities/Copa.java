@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Copa extends Competicao {
+public class Copa extends Competicao{
     public Random random = new Random();
     protected List<Time> grupoA;
     protected List<Time> grupoB;
@@ -17,75 +17,75 @@ public class Copa extends Competicao {
     protected List<Time> grupoH;
     protected List<List<Time>> grupos;
 
-    public List<Time> getGrupoA() {
+    public List<Time> getGrupoA(){
         return grupoA;
     }
 
-    public void setGrupoA(List<Time> grupoA) {
+    public void setGrupoA(List<Time> grupoA){
         this.grupoA = grupoA;
     }
 
-    public List<Time> getGrupoB() {
+    public List<Time> getGrupoB(){
         return grupoB;
     }
 
-    public void setGrupoB(List<Time> grupoB) {
+    public void setGrupoB(List<Time> grupoB){
         this.grupoB = grupoB;
     }
 
-    public List<Time> getGrupoC() {
+    public List<Time> getGrupoC(){
         return grupoC;
     }
 
-    public void setGrupoC(List<Time> grupoC) {
+    public void setGrupoC(List<Time> grupoC){
         this.grupoC = grupoC;
     }
 
-    public List<Time> getGrupoD() {
+    public List<Time> getGrupoD(){
         return grupoD;
     }
 
-    public void setGrupoD(List<Time> grupoD) {
+    public void setGrupoD(List<Time> grupoD){
         this.grupoD = grupoD;
     }
 
-    public List<Time> getGrupoE() {
+    public List<Time> getGrupoE(){
         return grupoE;
     }
 
-    public void setGrupoE(List<Time> grupoE) {
+    public void setGrupoE(List<Time> grupoE){
         this.grupoE = grupoE;
     }
 
-    public List<Time> getGrupoF() {
+    public List<Time> getGrupoF(){
         return grupoF;
     }
 
-    public void setGrupoF(List<Time> grupoF) {
+    public void setGrupoF(List<Time> grupoF){
         this.grupoF = grupoF;
     }
 
-    public List<Time> getGrupoG() {
+    public List<Time> getGrupoG(){
         return grupoG;
     }
 
-    public void setGrupoG(List<Time> grupoG) {
+    public void setGrupoG(List<Time> grupoG){
         this.grupoG = grupoG;
     }
 
-    public List<Time> getGrupoH() {
+    public List<Time> getGrupoH(){
         return grupoH;
     }
 
-    public void setGrupoH(List<Time> grupoH) {
+    public void setGrupoH(List<Time> grupoH){
         this.grupoH = grupoH;
     }
 
-    public List<List<Time>> getGrupos() {
+    public List<List<Time>> getGrupos(){
         return grupos;
     }
 
-    public void setGrupos(List<List<Time>> grupos) {
+    public void setGrupos(List<List<Time>> grupos){
         this.grupos = grupos;
     }
 
@@ -95,8 +95,14 @@ public class Copa extends Competicao {
        super(nome);
     }
 
-    public void timesFaseDeGrupos(){
+    @Override
+    public void competidores(){
+        super.competidores();
+    }
 
+    @Override
+    public void competidoresFaseDeGrupos(){
+        super.competidoresFaseDeGrupos();
     }
 
     public void iniciarCopa(){
