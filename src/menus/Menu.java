@@ -74,10 +74,10 @@ public class Menu {
         Premier premier = new Premier("Premier League");
         LaLiga laliga = new LaLiga("LaLiga");
         Paraibano paraibano = new Paraibano("Campeonato Paraibano");
-        
-        int escolha; 
+
+        int escolha;
         int opcao = 0;
-        do{    
+        do{
             escolha = menuEscolhaInicial(1);
             if(escolha > 1){ opcao = menuOpcaoCompeticao(); };
             switch(escolha){
@@ -88,28 +88,28 @@ public class Menu {
                     else if(opcao==2){ liga.listarTimes(); }
                     else{ liga.informacoesCompeticao(); }
                     break;
-    
+
                 case 2:
                     brasileirao.competidores();
                     if(opcao==1){ brasileirao.iniciarLiga(); }
                     else if(opcao==2){ brasileirao.listarTimes(); }
                     else { brasileirao.informacoesCompeticao(); }
                     break;
-    
+
                 case 3:
                     premier.competidores();
                     if(opcao==1){ premier.iniciarLiga(); }
                     else if(opcao==2){ premier.listarTimes(); }
                     else{ premier.informacoesCompeticao(); }
                     break;
-    
+
                 case 4:
                     laliga.competidores();
                     if(opcao==1){ laliga.iniciarLiga(); }
                     else if(opcao==2){ laliga.listarTimes(); }
                     else{ laliga.informacoesCompeticao(); }
                     break;
-    
+
                 case 5:
                     paraibano.competidores();
                     if(opcao==1){ paraibano.iniciarLiga(); }
@@ -119,13 +119,13 @@ public class Menu {
 
                 case 0:
                     break;
-                
+
                 default:
                     throw new RuntimeException("Escolha inválida.");
-                }
-            }while(escolha != 0);
-        }
-        
+            }
+        }while(escolha != 0);
+    }
+
     public void menuEscolhaCopas(){
         Copa copa = new Copa();
         CdB copaDoBrasil = new CdB("Copa do Brasil");
@@ -135,7 +135,7 @@ public class Menu {
 
         int escolha;
         int opcao = 0;
-        do{    
+        do{
             escolha = menuEscolhaInicial(2);
             if(escolha > 1){ opcao = menuOpcaoCompeticao(); }
             switch(escolha){
@@ -146,38 +146,38 @@ public class Menu {
                     else if(opcao==2){ copa.listarTimes(); }
                     else{ copa.informacoesCompeticao(); }
                     break;
-    
+
                 case 2:
                     copaDoBrasil.competidores();
                     if(opcao==1){ copaDoBrasil.iniciarCopa(); }
                     else if(opcao==2){ copaDoBrasil.listarTimes(); }
                     else { copaDoBrasil.informacoesCompeticao(); }
                     break;
-    
+
                 case 3:
                     libertadores.competidoresFaseDeGrupos();
                     if(opcao==1){ libertadores.faseDeGrupos(); libertadores.iniciarCopa(); }
                     else if(opcao==2){ libertadores.listarTimes(); }
                     else{ libertadores.informacoesCompeticao(); }
                     break;
-    
+
                 case 4:
                     champions.competidoresFaseDeGrupos();
                     if(opcao==1){ champions.faseDeGrupos(); champions.iniciarCopa(); }
                     else if(opcao==2){ champions.listarTimes(); }
                     else{ champions.informacoesCompeticao(); }
                     break;
-    
+
                 case 5:
                     copaDoMundo.competidoresFaseDeGrupos();
                     if(opcao==1){ copaDoMundo.faseDeGrupos(); copaDoMundo.iniciarCopa(); }
                     else if(opcao==2){ copaDoMundo.listarSelecoes(); }
                     else{ copaDoMundo.informacoesCompeticao(); }
                     break;
-                
+
                 case 0:
                     break;
-    
+
                 default:
                     throw new RuntimeException("Escolha inválida.");
             }

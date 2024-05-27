@@ -96,10 +96,12 @@ public class Libertadores extends Copa{
         if(finalistas != 2){
             throw new RuntimeException("Ação inválida.");
         }else{
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             System.out.println(" ");
             System.out.println("É O MOMENTO!");
             System.out.println(eliminatoria.get(0).getNome() + " e " + eliminatoria.get(1).getNome() + " vão em busca da GLÓRIA ETERNA!");
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             partidaEliminatoria(eliminatoria.get(0), eliminatoria.get(1));
         }

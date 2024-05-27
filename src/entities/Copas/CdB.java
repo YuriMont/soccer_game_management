@@ -50,10 +50,11 @@ public class CdB extends Copa{
         if(finalistas != 2){
             throw new RuntimeException("Ação inválida.");
         }else{
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
-            System.out.println(" ");
             System.out.println("É HOJE! O DIA QUE TODOS ESPERAMOS!");
             System.out.println(eliminatoria.get(0).getNome() + " e " + eliminatoria.get(1).getNome() + " se enfrentam para decidir quem leva a COPA DO BRASIL!");
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             partidaEliminatoriaDupla(eliminatoria.get(0), eliminatoria.get(1));
         }

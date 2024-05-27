@@ -112,6 +112,7 @@ public class Copa extends Competicao{
             faseDaCopa();
             campeao();
             redefinirSituacao();
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
         }
     }
@@ -227,6 +228,7 @@ public class Copa extends Competicao{
             }
         
             if(classificados != 2){
+                System.out.println("Pressione Enter para continuar...");
                 pausa.nextLine();
                 if(classificados == 16){
                     System.out.println(" ");
@@ -267,6 +269,7 @@ public class Copa extends Competicao{
             System.out.println(" ");
             System.out.println("CHEGOU O MOMENTO DA GRANDE FINAL!");
             System.out.println(eliminatoria.get(0).getNome() + " e " + eliminatoria.get(1).getNome() + " se enfrentam nesse embate insano!");
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             partidaEliminatoriaDupla(eliminatoria.get(0), eliminatoria.get(1));
         }

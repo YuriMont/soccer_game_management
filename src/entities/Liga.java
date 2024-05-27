@@ -28,14 +28,14 @@ public class Liga extends Competicao{
                 turno();
                 if(i == 1) System.out.println("- TABELA FINAL -");
                 tabela();
+                System.out.println("Pressione Enter para continuar...");
+                pausa.nextLine();
                 if(i == 1){
                     campeao();
                     zonaDeClassificacao();
                     zonaDeRebaixamento();
                 }
-                pausa.nextLine();
             }
-            System.out.println(" ");
         }
     }
 

@@ -95,10 +95,12 @@ public class UCL extends Copa{
         if(finalistas != 2){
             throw new RuntimeException("Ação inválida.");
         }else{
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             System.out.println(" ");
             System.out.println("CHEGOU O GRANDE DIA!");
             System.out.println(eliminatoria.get(0).getNome() + " e " + eliminatoria.get(1).getNome() + " decidem quem será o CAMPEÃO DA CHAMPIONS!");
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             partidaEliminatoria(eliminatoria.get(0), eliminatoria.get(1));
         }

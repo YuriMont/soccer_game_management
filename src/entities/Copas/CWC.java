@@ -135,6 +135,7 @@ public class CWC extends Copa{
             }
             
             if(classificados != 2){
+                System.out.println("Pressione Enter para continuar...");
                 pausa.nextLine();
                 if(classificados == 16){
                     System.out.println(" ");
@@ -173,10 +174,12 @@ public class CWC extends Copa{
         if(finalistas != 2){
             throw new RuntimeException("Ação inválida.");
         }else{
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             System.out.println(" ");
             System.out.println("É A FINAL DA COPA DO MUNDO!");
             System.out.println(eliminatoria.get(0).getNome() + " e " + eliminatoria.get(1).getNome() + " se enfrentam nesse embate insano!");
+            System.out.println("Pressione Enter para continuar...");
             pausa.nextLine();
             partidaEliminatoria(eliminatoria.get(0), eliminatoria.get(1));
         }
