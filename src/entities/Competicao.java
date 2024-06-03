@@ -53,7 +53,15 @@ public abstract class Competicao implements Competidores{
     ///////////////////////////////////////////////////// FUNCOES DE TABELA ///////////////////////////////////////////////////////////
     
     public void organizarTabela(){
-        Collections.sort(times, Comparator.comparingInt(Time::getPontosLiga).reversed());
+        Collections.sort(times, (time1, time2) -> {
+            // Compara primeiro por pontosLiga
+            int compare = Integer.compare(time2.getPontosLiga(), time1.getPontosLiga());
+            if (compare == 0) {
+                // Se pontosLiga forem iguais, compara por saldoDeGols
+                compare = Integer.compare(time2.getSaldoDeGols(), time1.getSaldoDeGols());
+            }
+            return compare;
+        });
     }
     
     public void zonaDeClassificacao(){
