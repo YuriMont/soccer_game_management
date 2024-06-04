@@ -51,7 +51,8 @@ public abstract class Competicao implements Competidores{
     }
     
     ///////////////////////////////////////////////////// FUNCOES DE TABELA ///////////////////////////////////////////////////////////
-    
+
+    @Override
     public void organizarTabela(){
         Collections.sort(times, (time1, time2) -> {
             // Compara primeiro por pontosLiga
@@ -81,6 +82,7 @@ public abstract class Competicao implements Competidores{
         }
     }
 
+    @Override
     public void tabela(){
         organizarTabela();
         System.out.println(" ");
@@ -153,7 +155,8 @@ public abstract class Competicao implements Competidores{
     public void apresentarResultado(Time mandante, int gols_mandante, Time visitante, int gols_visitante){
         System.out.println(mandante.getAcronimo() + " " + gols_mandante + " x " + gols_visitante + " " + visitante.getAcronimo());
     }
-    
+
+    @Override
     public void partida(Time mandante, Time visitante){
         int gols_mandante = gerarGolsEsperados(mandante, visitante);
         int gols_visitante = gerarGolsEsperados(visitante, mandante);
@@ -209,6 +212,7 @@ public abstract class Competicao implements Competidores{
         setTimes(lista);
     }
 
+    @Override
     public void listarTimes(){
         Time time = new Time();
         List<Time> lista = new ArrayList<>();
@@ -227,6 +231,7 @@ public abstract class Competicao implements Competidores{
         System.out.println(" ");
     }
 
+    @Override
     public void informacoesCompeticao(){
         System.out.println("[INFORMACÕES]");
         System.out.println("Nome: " + getNome());
