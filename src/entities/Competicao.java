@@ -40,10 +40,10 @@ public abstract class Competicao implements Competidores{
     }
     
     @Override
-    public void competidores(){}
+    public void lista(){}
 
     @Override
-    public void competidoresFaseDeGrupos(){}
+    public void grupoDeLista(){}
 
     public void campeao(){
         System.out.println(" ");
@@ -53,12 +53,10 @@ public abstract class Competicao implements Competidores{
     ///////////////////////////////////////////////////// FUNCOES DE TABELA ///////////////////////////////////////////////////////////
 
     @Override
-    public void organizarTabela(){
+    public void organizador(){
         Collections.sort(times, (time1, time2) -> {
-            // Compara primeiro por pontosLiga
             int compare = Integer.compare(time2.getPontosLiga(), time1.getPontosLiga());
             if (compare == 0) {
-                // Se pontosLiga forem iguais, compara por saldoDeGols
                 compare = Integer.compare(time2.getSaldoDeGols(), time1.getSaldoDeGols());
             }
             return compare;
@@ -84,7 +82,7 @@ public abstract class Competicao implements Competidores{
 
     @Override
     public void tabela(){
-        organizarTabela();
+        organizador();
         System.out.println(" ");
         System.out.println("Pº |   TIM   |  PT  |  V+  |  E=  |  D-  |  GM  |  GS  |  SG  ");
         for(int i = 0; i < getTimes().size(); i++){
@@ -156,7 +154,6 @@ public abstract class Competicao implements Competidores{
         System.out.println(mandante.getAcronimo() + " " + gols_mandante + " x " + gols_visitante + " " + visitante.getAcronimo());
     }
 
-    @Override
     public void partida(Time mandante, Time visitante){
         int gols_mandante = gerarGolsEsperados(mandante, visitante);
         int gols_visitante = gerarGolsEsperados(visitante, mandante);
@@ -213,7 +210,7 @@ public abstract class Competicao implements Competidores{
     }
 
     @Override
-    public void listarTimes(){
+    public void listar(){
         Time time = new Time();
         List<Time> lista = new ArrayList<>();
 
@@ -232,7 +229,7 @@ public abstract class Competicao implements Competidores{
     }
 
     @Override
-    public void informacoesCompeticao(){
+    public void informacoes(){
         System.out.println("[INFORMACÕES]");
         System.out.println("Nome: " + getNome());
         System.out.println("Nº de times: " + getTimes().size());

@@ -96,13 +96,13 @@ public class Copa extends Competicao{
     }
 
     @Override
-    public void competidores(){
-        super.competidores();
+    public void lista(){
+        super.lista();
     }
 
     @Override
-    public void competidoresFaseDeGrupos(){
-        super.competidoresFaseDeGrupos();
+    public void grupoDeLista(){
+        super.grupoDeLista();
     }
 
     public void iniciarCopa(){
@@ -120,7 +120,7 @@ public class Copa extends Competicao{
     ///////////////////////////// FUNCOES DE FASE DE GRUPOS ////////////////////////////////////////////////
     
     @Override
-    public void listarTimes(){
+    public void listar(){
         Time time = new Time();
         List<Time> lista = new ArrayList<>();
         for(int i = 0; i < grupos.size(); i++){
@@ -149,7 +149,7 @@ public class Copa extends Competicao{
     }
 
     @Override
-    public void informacoesCompeticao(){
+    public void informacoes(){
         int numeroTimes = contarTimes();
         System.out.println("[INFORMAÇÕES]");
         System.out.println("Nome: " + getNome());

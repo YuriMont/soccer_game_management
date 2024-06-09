@@ -1,11 +1,10 @@
 package entities;
 
 public interface Competidores{
-    public void competidoresFaseDeGrupos();
-    public void competidores();
-    public void organizarTabela();
+    public void grupoDeLista();
+    public void lista();
+    public void organizador();
     public void tabela();
-    public void partida(Time mandante, Time visitante);
-    public void listarTimes();
-    public void informacoesCompeticao();
+    public void listar();
+    public void informacoes();
 }
