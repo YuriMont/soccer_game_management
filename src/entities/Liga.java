@@ -15,8 +15,8 @@ public class Liga extends Competicao{
     }
 
     @Override
-    public void competidores(){
-        super.competidores();
+    public void lista(){
+        super.lista();
     }
     
     public void iniciarLiga(){

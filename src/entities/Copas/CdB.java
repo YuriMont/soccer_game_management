@@ -12,7 +12,7 @@ public class CdB extends Copa{
     public CdB(String nome){ super(nome); }
     
     @Override
-    public void competidores(){
+    public void lista(){
         List<Time> timesCdB = new ArrayList<>();
 
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Bahia", "BAH", "Brasil", 3));
@@ -20,9 +20,9 @@ public class CdB extends Copa{
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Atlético Mineiro", "CAM", "Brasil", 5));
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Fluminense", "FLU", "Brasil", 4));
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Atlético Goianiense", "ACG", "Brasil", 1));
-        timesCdB.add(posicaoAleatoria(timesCdB), new Time("Sousa", "SOU", "Brasil", 1));
+        timesCdB.add(posicaoAleatoria(timesCdB), new Time("Red Bull Bragantino", "RBB", "Brasil", 4));
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Athletico", "CAP", "Brasil", 3));
-        timesCdB.add(posicaoAleatoria(timesCdB), new Time("Fortaleza", "FOR", "Brasil", 3));
+        timesCdB.add(posicaoAleatoria(timesCdB), new Time("Vasco", "VAS", "Brasil", 2));
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Botafogo", "BOT", "Brasil", 3));
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("São Paulo", "SAO", "Brasil", 4));
         timesCdB.add(posicaoAleatoria(timesCdB), new Time("Flamengo", "FLA", "Brasil", 5));
@@ -67,7 +67,7 @@ public class CdB extends Copa{
     }
 
     @Override
-    public void listarTimes(){
+    public void listar(){
         Time time = new Time();
         List<Time> lista = new ArrayList<>();
 
@@ -86,7 +86,7 @@ public class CdB extends Copa{
     }
 
     @Override
-    public void informacoesCompeticao(){
+    public void informacoes(){
         System.out.println("[INFORMACÕES]");
         System.out.println("Nome: " + getNome());
         System.out.println("Nº de times: " + getTimes().size());

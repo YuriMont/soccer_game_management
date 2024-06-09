@@ -10,7 +10,7 @@ public class LaLiga extends Liga{
     public LaLiga(String nome){ super(nome); }
     
     @Override
-    public void competidores(){
+    public void lista(){
         List<Time> timesLL = new ArrayList<>();
     
         timesLL.add(new Time("Alavés", "DPA", "Espanha", 2));

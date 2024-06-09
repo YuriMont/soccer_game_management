@@ -10,7 +10,7 @@ public class Libertadores extends Copa{
     public Libertadores(String nome){ super(nome); }
 
     @Override
-    public void competidoresFaseDeGrupos(){
+    public void grupoDeLista(){
         List<List<Time>> gruposGeral = new ArrayList<>();
 
         List<Time> gA = new ArrayList<>();
